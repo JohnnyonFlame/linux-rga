@@ -46,6 +46,14 @@ librga = shared_library(
     install : true,
 )
 
+librga = static_library(
+    'rga',
+    librga_srcs,
+    dependencies : [libdrm_dep],
+    install : true,
+    cpp_args: ['-fno-rtti', '-fno-exceptions']
+)
+
 install_headers(
     'rga.h',
     'drmrga.h',
